@@ -9,30 +9,29 @@ public class Muro
         mensajes = new ArrayList<>();
         fotos = new ArrayList<>();
     }
-    
+
     public void addEntradaTexto(EntradaTexto entradaTexto)
     {
-    mensajes.add(entradaTexto);
+        mensajes.add(entradaTexto);
     }
-    
+
     public void addEntradaFoto(EntradaFoto entradaFoto)
     {
         fotos.add(entradaFoto);
     }
-    
+
     public String toString() {
         StringBuilder textoADevolver = new StringBuilder();
-        String mensajesStr = "";
         for (EntradaTexto mensaje : mensajes) {
-            mensajesStr += mensaje + ("\n");
+            textoADevolver.append(mensaje).append("\n");
         }
-        String fotosStr = "";
+
         for (EntradaFoto foto : fotos) {
-            fotosStr += foto + ("\n");
+            textoADevolver.append(foto).append("\n");
         }
-        return textoADevolver.append(mensajesStr).append(fotosStr).toString();
+        return textoADevolver.toString();
     }
-    
+
     public void imprimirMuro() {
         System.out.println(toString());
     }

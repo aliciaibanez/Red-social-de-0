@@ -24,7 +24,7 @@ public class EntradaFoto
     {
         cantidadMeGusta++;
     }
-    
+
     public void unLike()
     {
         cantidadMeGusta--;
@@ -37,7 +37,7 @@ public class EntradaFoto
     public String getUrlImagen() {
         return urlImagen;
     }
-    
+
     public String getTituloImagen() {
         return titulo;
     }
@@ -69,16 +69,21 @@ public class EntradaFoto
         else {
             publicadoHaceStr = "Publicado hace más de un año";
         }
-        String comentariosStr = "No existen comentarios";
-        for (String comentario : comentarios) {
-            comentariosStr += comentario + "\n";
+        String comentariosStr = "";
+        if (comentarios.size() > 0) {
+            for (String comentario : comentarios) {
+                comentariosStr += comentario + "\n";
+            }
+        }
+        else {
+            comentariosStr = "No existen comentarios";
         }
         StringBuilder textoADevolver = new StringBuilder();
-        System.out.println(textoADevolver.append(usuario).append("\n").
+        
+        return textoADevolver.append(usuario).append("\n").
             append(urlImagen).append("\n").append(titulo).append("\n").
             append(publicadoHaceStr).append("\n").
             append(cantidadMeGusta).append("\n").
-            append(comentariosStr).append("\n"));
-        return textoADevolver.toString();
+            append(comentariosStr).append("\n").toString();
     }
 }
